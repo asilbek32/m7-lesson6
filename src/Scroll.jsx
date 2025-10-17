@@ -1,4 +1,5 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
+import { Alert, Button } from "antd";
 import axios from "axios";
 import React from "react";
 
@@ -25,8 +26,19 @@ function Scroll() {
   return (
     <div className="w-[60%] m-auto">
       {allPosts?.map((value) => {
-        <div key={value.id}>{value.title}</div>;
+        return (
+          <div key={value.id} className="mt-[10px]">
+            <Alert
+              message={value.title + " " + value.id}
+              className="!h-[50px]"
+            />
+          </div>
+        );
       })}
+
+      <Button className="!mt-3" onClick={fetchNextPage}>
+        {isFetchingNextPage || isLoading ? "Loading.." : "Show more"}
+      </Button>
     </div>
   );
 }

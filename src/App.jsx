@@ -3,6 +3,8 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import PaginationComponent from './PaginationComponent'
+import Scroll from './Scroll'
+import MainLayout from './components/main-layout'
 
 function App() {
  
@@ -10,7 +12,8 @@ function App() {
   return (
   <div>
     {/* <PaginationComponent/> */}
-    
+    {/* <Scroll/> */}
+    <MainLayout/>
   </div>
   )
 }

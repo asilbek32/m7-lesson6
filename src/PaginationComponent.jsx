@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import React, { useState } from "react";
-import { Alert, message, Pagination, Skeleton } from "antd";
+import { Alert, Pagination, Skeleton } from "antd";
 
 function PaginationComponent() {
   const [currentPage, setCurrentPage] = useState(1);
@@ -22,12 +22,12 @@ function PaginationComponent() {
   });
 
   const skeletOn = () => {
-    return Array.from({ length: 10 }).map((_, ind) => {
-      <Skeleton.Input className="!w-full !h-[45px] " active key={ind} />;
-    });
+    return Array.from({ length: 10 }).map((_, ind) => (
+      <Skeleton.Input className="!w-full !h-[45px]" active key={ind} />
+    ));
   };
 
-  console.log(data);
+
 
   const handleChange = (page, pageSize) => {
     setCurrentPage(page);
@@ -39,14 +39,22 @@ function PaginationComponent() {
       {isLoading || isError
         ? skeletOn()
         : data?.data.map((value) => {
-            <Alert
-              key={value.id}
-              message={value.title + value.id}
-              className="!mt-5"
-            />;
+            return (
+              <Alert
+                key={value.id}
+                message={value.title + value.id}
+                className="!mt-5"
+              />
+            );
           })}
 
-      <Pagination current={currentPage} />
+      <Pagination
+        current={currentPage}
+        total={data?.total}
+        onChange={handleChange}
+        pageSize={currentLimit}
+        showSizeChanger
+      />
     </div>
   );
 }
