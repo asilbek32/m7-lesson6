@@ -1,13 +1,17 @@
-import React from 'react'
-import Header from '../heard'
+import React, { Children } from "react";
+import Header from "../heard";
+import Footerr from "../foter";
 
-function MainLayout() {
+function MainLayout({ children }) {
   return (
-    <div className='w-full'>
-        <Header/>
-        
+    <div>
+      <Header />
+
+      {children}
+
+      <Footerr />
     </div>
-  )
+  );
 }
 
-export default MainLayout 
+export default MainLayout;

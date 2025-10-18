@@ -9,7 +9,7 @@ import arrowdawn from "../../assets/arrowdawn.svg";
 
 function Header() {
   return (
-    <nav className=" px-[7px] md:px-[40px] mb-[20px]">
+    <div className=" px-[7px] md:px-[40px] mb-[20px]">
     
       <div className="lg:flex justify-between items-center mb-[10px] hidden">
         <img src={logo} alt="Logo" />
@@ -65,7 +65,7 @@ function Header() {
           <img src={arrowdawn} alt="Arrow down" />
         </div>
       </div>
-    </nav>
+    </div>
   );
 }
 
